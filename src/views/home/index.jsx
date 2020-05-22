@@ -17,7 +17,6 @@ class Home extends React.Component {
     }
 
     render() {
-
         return (
             <div className="homeContent">
                 {renderRoutes(routers)}
