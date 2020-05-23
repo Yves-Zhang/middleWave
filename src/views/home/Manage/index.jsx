@@ -7,6 +7,14 @@ import './style.less';
 const LayoutItem = Layout.SubItem;
 
 class Manage extends React.PureComponent {
+	constructor(props) {
+		super(props)
+	}
+	componentDidMount() {
+		window.addEventListener("message", (event) => {
+			console.log(event.data)
+		})
+	}
 	render() {
 		return (
 			<div className="page">

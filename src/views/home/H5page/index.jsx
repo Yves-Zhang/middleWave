@@ -1,20 +1,25 @@
 import React from 'react';
-
-import { AuxButton, Provider, Custom } from '../../../editorComponents/index';
+import { AuxButton, Provider } from '../../../editorComponents/index';
+import { config } from '../../../editorComponents/Context'
 
 import './style.less';
 
-@Provider({})
+@Provider()
 class H5page extends React.Component {
-	componentDidMount(){
+	componentDidMount() {
 		console.log('这里也是didMounted')
 	}
+
+	postMessage = () => {
+		window.top.postMessage(config);
+	}
+
 	render() {
 		return (
 			<div className="h5_page">
-				<AuxButton>Test Button</AuxButton>
+				<AuxButton Configurable={true} ConfigurableId="button_1">Test Button</AuxButton>
 
-				<AuxButton style={{ position: 'fixed', bottom: 0 }}>生成配置config</AuxButton>
+				<AuxButton style={{ position: 'fixed', bottom: 0 }} onClick={this.postMessage}>生成配置config</AuxButton>
 			</div>
 		);
 	}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { Props } from './proto';
+import HocWrapper from '../HocWrapper'
 
 class AuxButton extends React.PureComponent {
 	static defaultProps = new Props();
@@ -8,6 +9,12 @@ class AuxButton extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {};
+	}
+
+	componentDidMount(){
+		this.props.didMountCallBack(this)
+
+		console.log(this.props)
 	}
 
 	render() {
@@ -28,4 +35,4 @@ class AuxButton extends React.PureComponent {
 	}
 }
 
-export default AuxButton;
+export default HocWrapper(AuxButton);
