@@ -13,8 +13,6 @@ class AuxButton extends React.PureComponent {
 
 	componentDidMount(){
 		this.props.didMountCallBack(this)
-
-		console.log(this.props)
 	}
 
 	render() {

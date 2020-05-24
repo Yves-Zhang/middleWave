@@ -1,9 +1,9 @@
 import AuxButton from './AuxButton';
 import Provider from './Provider';
-import Custom from './Custom';
+import PageComp from './PageComp'
 
 module.exports = {
 	AuxButton,
 	Provider,
-	Custom
+	PageComp
 };

@@ -12,6 +12,7 @@ const HocWrapper = (Comp) => {
             const { Configurable, ConfigurableId } = entity.props
 
             config[ConfigurableId] = {}
+            config[ConfigurableId].conf = entity.props.conf
             entity.props.conf.map((item, index) => {
                 config[ConfigurableId][item.field] = entity.props[item.field] || null
             })

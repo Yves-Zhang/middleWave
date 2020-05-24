@@ -10,7 +10,7 @@ export class Props {
 			},
 			{
 				field: 'type',
-				text: 'text',
+				text: '按钮类型',
 				type: 'select',
 				data: [
 					{
@@ -33,22 +33,17 @@ export class Props {
 			},
 			{
 				field: 'ghost',
-				text: 'text',
+				text: '幽灵按钮',
 				type: 'boolean'
 			},
 			{
 				field: 'icon',
-				text: 'text',
+				text: '按钮icon',
 				type: 'string'
 			},
 			{
-				field: 'loading',
-				text: 'text',
-				type: 'boolean'
-			},
-			{
 				field: 'size',
-				text: 'text',
+				text: '按钮尺寸',
 				type: 'select',
 				data: [
 					{

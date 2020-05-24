@@ -9,10 +9,15 @@ const LayoutItem = Layout.SubItem;
 class Manage extends React.PureComponent {
 	constructor(props) {
 		super(props)
+		this.state = {
+			config: {}
+		}
 	}
 	componentDidMount() {
 		window.addEventListener("message", (event) => {
-			console.log(event.data)
+			this.setState({
+				config: event.data
+			})
 		})
 	}
 	render() {
@@ -24,7 +29,7 @@ class Manage extends React.PureComponent {
 						<PreviewBox iframeUrl="http://127.0.0.1:9001/#/H5page" />
 					</LayoutItem>
 					<LayoutItem span={6}>
-						<ConfigBox />
+						<ConfigBox config={this.state.config} />
 					</LayoutItem>
 				</Layout>
 			</div>
