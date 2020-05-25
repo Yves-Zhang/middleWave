@@ -11,16 +11,15 @@ class Header extends React.PureComponent {
 		this.state = {};
 	}
 
+	save = () => {
+		console.log('save')
+	};
+
 	render() {
 		const { gutter } = this.props;
 		return (
 			<div className="aux_hearder">
 				<div className="title">Aux</div>
-				<ul className="rightBox">
-					<li>
-						<Icon type="save" />
-					</li>
-				</ul>
 			</div>
 		);
 	}
