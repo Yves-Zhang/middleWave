@@ -31,11 +31,12 @@ class ConfigBox extends React.PureComponent {
 	createPanelChildren = (arg, confItem, key) => {
 		const { getFieldDecorator } = this.props.form;
 		return arg.map((item, index) => {
+			const newField = `${key}@-@${item.field}`;
 			switch (item.type) {
 				case 'string':
 					return (
 						<Form.Item label={item.text} key={index}>
-							{getFieldDecorator(`${key}_${item.field}`, {
+							{getFieldDecorator(newField, {
 								rules: [],
 								initialValue: confItem[item.field] || null
 							})(<Input />)}
@@ -44,7 +45,7 @@ class ConfigBox extends React.PureComponent {
 				case 'select':
 					return (
 						<Form.Item label={item.text} key={index}>
-							{getFieldDecorator(`${key}_${item.field}`, {
+							{getFieldDecorator(newField, {
 								rules: [],
 								initialValue: confItem[item.field] || null
 							})(<Select>{this.createOption(item.data)}</Select>)}
@@ -53,7 +54,7 @@ class ConfigBox extends React.PureComponent {
 				case 'boolean':
 					return (
 						<Form.Item label={item.text} key={index}>
-							{getFieldDecorator(`${key}_${item.field}`, {
+							{getFieldDecorator(newField, {
 								rules: [],
 								initialValue: confItem[item.field] || null
 							})(<Switch />)}
@@ -62,7 +63,7 @@ class ConfigBox extends React.PureComponent {
 				case 'string':
 					return (
 						<Form.Item label={item.text} key={index}>
-							{getFieldDecorator(`${key}_${item.field}`, {
+							{getFieldDecorator(newField, {
 								rules: [],
 								initialValue: confItem[item.field] || null
 							})(<Input />)}
@@ -86,6 +87,24 @@ class ConfigBox extends React.PureComponent {
 
 	callback = () => {};
 
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.props.form.validateFields((err, values) => {
+			if (!err) {
+				console.log('Received values of form: ', values);
+				const config = {};
+				Object.keys(values).map((key, index) => {
+					const keyArr = key.split('@-@');
+					if (!config[keyArr[0]]) {
+						config[keyArr[0]] = {};
+					}
+					config[keyArr[0]][keyArr[1]] = values[key]
+				});
+				this.props.save(config)
+			}
+		});
+	};
+
 	render() {
 		const formItemLayout = {
 			labelCol: {
@@ -103,11 +122,11 @@ class ConfigBox extends React.PureComponent {
 					<span style={{ display: 'inline-block', fontWeight: '500' }}>页面配置</span>
 					<ul className="rightBox">
 						<li className="aux_li">
-							<Icon type="save" onClick={() => {}} />
+							<Icon type="save" onClick={this.handleSubmit} />
 						</li>
 					</ul>
 				</div>
-				<Form {...formItemLayout} onSubmit={this.handleSubmit}>
+				<Form {...formItemLayout}>
 					<Collapse onChange={this.callback}>{this.createContent(this.props.config)}</Collapse>
 				</Form>
 			</div>

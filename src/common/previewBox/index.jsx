@@ -14,7 +14,7 @@ class PreviewBox extends React.PureComponent {
 	render() {
 		return (
 			<div className="aux_preview">
-				<Curtain iframeUrl={this.props.iframeUrl} />
+				<Curtain iframeUrl={this.props.iframeUrl} id={this.props.id} />
 			</div>
 		);
 	}

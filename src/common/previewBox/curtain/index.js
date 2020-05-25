@@ -13,7 +13,7 @@ class Curtain extends React.PureComponent {
 	render() {
 		return (
 			<div className="aux_curtain">
-				<iframe className="aux_iframe" src={this.props.iframeUrl}></iframe>
+				<iframe id={this.props.id} className="aux_iframe" src={this.props.iframeUrl}></iframe>
 			</div>
 		);
 	}

@@ -27,7 +27,7 @@ class AuxButton extends React.PureComponent {
 				type={this.props.type}
 				onClick={this.props.onClick}
 			>
-				{this.props.children}
+				{this.props.text}
 			</Button>
 		);
 	}
