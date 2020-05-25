@@ -106,6 +106,7 @@ class ConfigBox extends React.PureComponent {
 		};
 		return (
 			<div className="aux_configBox">
+				<div className="title">页面配置</div>
 				<Form {...formItemLayout} onSubmit={this.handleSubmit}>
 					<Collapse onChange={this.callback}>
 						{
