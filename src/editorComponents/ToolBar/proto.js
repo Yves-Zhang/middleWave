@@ -1,6 +1,6 @@
 export class Props {
 	constructor() {
-		this.key = 'aux-button';
+		this.key = 'aux-toolBar';
 		this.name = 'Button';
 		this.conf = [
 			{

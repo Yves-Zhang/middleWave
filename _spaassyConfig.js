@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
     server: {
         host: '127.0.0.1',
-        port: 9001,
+        port: 8080,
         proxy: [
             // {
             //     path: '/api',

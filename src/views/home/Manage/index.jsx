@@ -41,7 +41,7 @@ class Manage extends React.PureComponent {
 				<Header />
 				<Layout background="rgb(234, 234, 234)">
 					<LayoutItem span={18}>
-						<PreviewBox id="iframeRef" iframeUrl="http://127.0.0.1:9001/#/H5page" />
+						<PreviewBox id="iframeRef" iframeUrl="http://127.0.0.1:8080/#/H5page" />
 					</LayoutItem>
 					<LayoutItem span={6}>
 						<ConfigBox config={this.state.config} save={this.save} />

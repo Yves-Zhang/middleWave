@@ -13,8 +13,8 @@ class PageComp extends React.Component {
 
     render() {
         return (
-            <div className="aux_pageComp">
-                <img className="bgImage" src={this.props.bgImage} alt="" style={{ width: '100vw' }} />
+            <div className="aux_pageComp" style={{backgroundImage: `url(${this.props.bgImage})`}}>
+								{this.props.text}
                 {this.props.children}
             </div>
         );
